@@ -2,7 +2,7 @@ version: "2.1"
 services:
   # Kafka/Zookeeper container
   docker-kafka:
-    build: kafka/
+    image: krisgeus/docker-kafka
     container_name: docker-kafka
     environment:
       - ADVERTISED_HOST=docker-kafka
@@ -14,7 +14,7 @@ services:
       - 2181:2181 # Zookeeper
   # Divolte container
   docker-divolte:
-    build: divolte/
+    image: divolte_docker-divolte
     container_name: docker-divolte
     environment:
       - DIVOLTE_KAFKA_BROKER_LIST=docker-kafka:9092
@@ -39,7 +39,7 @@ services:
       - docker-kafka:docker-kafka
   # Superset container
   docker-superset:
-    build: superset/
+    image: amancevice/superset
     container_name: docker-superset
     ports:
       - 8088:8088
