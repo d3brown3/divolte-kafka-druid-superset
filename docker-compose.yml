@@ -14,7 +14,7 @@ services:
       - 2181:2181 # Zookeeper
   # Divolte container
   docker-divolte:
-    image: divolte_docker-divolte
+    build: divolte
     container_name: docker-divolte
     environment:
       - DIVOLTE_KAFKA_BROKER_LIST=docker-kafka:9092
